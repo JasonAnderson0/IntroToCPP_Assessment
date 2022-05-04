@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 int MinValue(const int* arr, int count);
@@ -30,18 +29,39 @@ int main(int argc, char** argv)
 int MinValue(const int* arr, int count)
 {
 	// TODO: loop through the array, return the smallest value
-	return 0;
+	int smallest = arr[0];
+
+	for (int i = 0; i < count; i++) {
+		if (arr[i] < smallest)
+			smallest = arr[i];
+	}
+	return smallest;
 }
 
 int MaxValue(const int* arr, int count)
 {
 	// TODO: loop through the array, return the largest value
-	return 0;
+	int largest = arr[0];
+
+	for (int i = 0; i < count; i++) {
+		if (arr[i] > largest)
+			largest = arr[i];
+	}
+	return largest;
 }
 
 int CountOccurencesOfValue(const int* arr, int count, int search)
 {
 	// TODO: loop through the array, return the largest value
-	return 0;
+	int occurances = 0;
+
+	for (int i = 0; i < count; i++)
+	{
+		if (arr[i] == search) {
+			occurances++;
+		}
+	}
+
+	return occurances;
 }
 

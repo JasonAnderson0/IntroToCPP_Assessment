@@ -36,7 +36,7 @@ void Application::Load()
 	// value between 0 and 5 exclusive;
 	// -----------------------------------------------------
 	
-	// write your code here
+	
 
 	// -----------------------------------------------------
 }
