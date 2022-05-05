@@ -85,6 +85,7 @@ void Application::Draw()
 	float yPos = 0;
 	Color color = GetTileColor(1); // pass in the tilevalue
 
+
 	DrawRectangle(xPos, yPos, m_tileWidth, m_tileHeight, color);
 
 	// --------------------------------------------------------------------
