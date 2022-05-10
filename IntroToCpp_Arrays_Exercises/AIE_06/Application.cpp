@@ -36,7 +36,7 @@ void Application::Load()
 	// value between 0 and 5 exclusive;
 	// -----------------------------------------------------
 	
-	
+	int m_tiles = rand() % 5;
 
 	// -----------------------------------------------------
 }
@@ -54,8 +54,8 @@ void Application::Update(float deltaTime)
 
 		// Task 3:
 		// TODO: Calculate row and col index based on the mouse positon
-		int rowIndex = 0; 
-		int colIndex = 0;
+		int rowIndex = mousePos.x; 
+		int colIndex = mousePos.y;
 
 		// TODO: calculate the index of the tile clicked on based on the row/col index
 		int tileIndex = 0;

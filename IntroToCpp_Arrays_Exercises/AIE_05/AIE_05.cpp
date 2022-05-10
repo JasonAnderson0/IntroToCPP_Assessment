@@ -45,8 +45,8 @@ int main(int argc, char** argv)
 	for (int index = 0; index < ROWS * COLS; index++)
 	{
 		// TODO: convert "index" to a "rowIndex" and "colIndex" value
-		int rowIndex = ;
-		int colIndex = 0;
+		int rowIndex = ROWS;
+		int colIndex = COLS;
 
 		// use the resulting row and column index to print the value
 		std::cout << grid2D[rowIndex][colIndex] << ", ";
