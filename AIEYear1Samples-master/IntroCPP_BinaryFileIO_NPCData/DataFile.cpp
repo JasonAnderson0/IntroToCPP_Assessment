@@ -2,6 +2,7 @@
 #include <fstream>
 using namespace std;
 
+
 DataFile::DataFile()
 {
 	recordCount = 0;

@@ -50,12 +50,12 @@ int main(int argc, char** argv)
 
 		// use the resulting row and column index to print the value
 		std::cout << grid2D[rowIndex][colIndex] << ", ";
-	}	std::cout << std::endl;
+	}	std::cout << std::endl << std::endl;
 
 	// ------------------------------------------------------------------------
 
 
-	const char* grid1D[ROWS][COLS] =
+	const char* grid1D[ROWS * COLS] =
 	{
 		"a0", "a1", "a2", "a3", "a4",
 		"b0", "b1", "b2", "b3", "b4",
