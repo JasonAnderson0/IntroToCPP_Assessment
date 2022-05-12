@@ -17,9 +17,8 @@ public:
 
 private:
 	int recordCount;
-	std::vector<Record*> records;	// delete this vector. Load only the required record 
-
-
+	string fileName; // keep to open and close file at will
+	Record currentRecord; //designate the record as this variable and have this as the one that loads
 
 public:
 	DataFile();

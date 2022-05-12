@@ -64,13 +64,24 @@ int main(int argc, char* argv[])
 
         if (IsKeyPressed(KEY_RIGHT))
         {
-            currentRecordIdx++;
-            if (currentRecordIdx >= data.GetRecordCount())
-            {
-                currentRecordIdx = data.GetRecordCount();
+            if (currentRecordIdx != 4) {
+                currentRecordIdx++;
+                if (currentRecordIdx >= data.GetRecordCount())
+                {
+                    currentRecordIdx = data.GetRecordCount();
+                }
+                currentRecord = data.GetRecord(currentRecordIdx);
+                recordTexture = LoadTextureFromImage(currentRecord->image);
             }
-            currentRecord = data.GetRecord(currentRecordIdx);
-            recordTexture = LoadTextureFromImage(currentRecord->image);
+            //else {
+            //    currentRecordIdx = 0;
+            //    if (currentRecordIdx >= data.GetRecordCount())
+            //    {
+            //        currentRecordIdx = data.GetRecordCount();
+            //    }
+            //    currentRecord = data.GetRecord(currentRecordIdx);
+            //    recordTexture = LoadTextureFromImage(currentRecord->image);
+            //}
         }
 
 

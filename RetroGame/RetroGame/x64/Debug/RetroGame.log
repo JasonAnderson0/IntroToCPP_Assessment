@@ -1,0 +1,13 @@
+﻿  Application.cpp
+  RetroGame.cpp
+  Generating Code...
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\RetroGame\Application.cpp(60): warning C4715: 'Application::GetTileColor': not all control paths return a value
+Application.obj : error LNK2019: unresolved external symbol InitWindow referenced in function "public: void __cdecl Application::Run(void)" (?Run@Application@@QEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol WindowShouldClose referenced in function "public: void __cdecl Application::Run(void)" (?Run@Application@@QEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol ClearBackground referenced in function "private: void __cdecl Application::Draw(void)" (?Draw@Application@@AEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol BeginDrawing referenced in function "private: void __cdecl Application::Draw(void)" (?Draw@Application@@AEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol EndDrawing referenced in function "private: void __cdecl Application::Draw(void)" (?Draw@Application@@AEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol SetTargetFPS referenced in function "public: void __cdecl Application::Run(void)" (?Run@Application@@QEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol GetFrameTime referenced in function "public: void __cdecl Application::Run(void)" (?Run@Application@@QEAAXXZ)
+Application.obj : error LNK2019: unresolved external symbol DrawRectangle referenced in function "private: void __cdecl Application::Draw(void)" (?Draw@Application@@AEAAXXZ)
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\x64\Debug\RetroGame.exe : fatal error LNK1120: 8 unresolved externals

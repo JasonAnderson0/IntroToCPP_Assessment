@@ -22,13 +22,13 @@ void DataFile::AddRecord(string imageFilename, string name, int age)
 	r->name = name;
 	r->age = age;
 
-	records.push_back(r);
+	currentRecord.push_back(r);
 	recordCount++;
 }
 
 DataFile::Record* DataFile::GetRecord(int index)
 {
-	return records[index];
+	return currentRecord[index];
 }
 
 void DataFile::Save(string filename)
@@ -69,6 +69,13 @@ void DataFile::Load(string filename)
 	recordCount = 0;
 	infile.read((char*)&recordCount, sizeof(int));
 
+
+	//TODO: reformat for reading record when its needed not all at once
+	//in loop use seekg with current, skip number of bytes without reading
+	//kinda bit shifting but not by a certain amount
+	//use seekg to skip image data and name until find correct one
+	//skip by sizes
+	//calculate seekg amount (skipped)
 	for (int i = 0; i < recordCount; i++)
 	{		
 		int nameSize = 0;
@@ -87,7 +94,9 @@ void DataFile::Load(string filename)
 		infile.read(imgdata, imageSize);
 
 		Image img = LoadImageEx((Color*)imgdata, width, height);
-		char* name = new char[nameSize];
+		// to do account for null terminator set size to name plus null terminator
+		// 
+		char* name = new char[nameSize]; // Tom is size 3, make it 4 to make 4th a 0 for null terminator
 		int age = 0;
 				
 		infile.read((char*)name, nameSize);
