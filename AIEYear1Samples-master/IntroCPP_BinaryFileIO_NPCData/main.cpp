@@ -1,24 +1,3 @@
-/*******************************************************************************************
-*
-*   raylib [core] example - Basic window
-*
-*   Welcome to raylib!
-*
-*   To test examples, just press F6 and execute raylib_compile_execute script
-*   Note that compiled executable is placed in the same folder as .c file
-*
-*   You can find all basic examples on C:\raylib\raylib\examples folder or
-*   raylib official webpage: www.raylib.com
-*
-*   Enjoy using raylib. :)
-*
-*   This example has been created using raylib 1.0 (www.raylib.com)
-*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
-*
-*   Copyright (c) 2014 Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
-
 #include "raylib.h"
 #include "DataFile.h"
 
@@ -53,18 +32,21 @@ int main(int argc, char* argv[])
 
         if (IsKeyPressed(KEY_LEFT))
         {
-            currentRecordIdx--;
-            if (currentRecordIdx < 0)
-            {
-                currentRecordIdx = 0;
+            if (currentRecordIdx != 0) {
+                currentRecordIdx--;
+                if (currentRecordIdx < 0)
+                {
+                    currentRecordIdx = 0;
+                }
+                currentRecord = data.GetRecord(currentRecordIdx);
+                recordTexture = LoadTextureFromImage(currentRecord->image);
             }
-            currentRecord = data.GetRecord(currentRecordIdx);
-            recordTexture = LoadTextureFromImage(currentRecord->image);
         }
 
         if (IsKeyPressed(KEY_RIGHT))
         {
-            if (currentRecordIdx != 4) {
+            if (currentRecordIdx != 4)
+            {
                 currentRecordIdx++;
                 if (currentRecordIdx >= data.GetRecordCount())
                 {
@@ -73,15 +55,6 @@ int main(int argc, char* argv[])
                 currentRecord = data.GetRecord(currentRecordIdx);
                 recordTexture = LoadTextureFromImage(currentRecord->image);
             }
-            //else {
-            //    currentRecordIdx = 0;
-            //    if (currentRecordIdx >= data.GetRecordCount())
-            //    {
-            //        currentRecordIdx = data.GetRecordCount();
-            //    }
-            //    currentRecord = data.GetRecord(currentRecordIdx);
-            //    recordTexture = LoadTextureFromImage(currentRecord->image);
-            //}
         }
 
 

@@ -2,7 +2,6 @@
 #include <fstream>
 using namespace std;
 
-
 DataFile::DataFile()
 {
 	recordCount = 0;
@@ -16,19 +15,21 @@ DataFile::~DataFile()
 void DataFile::AddRecord(string imageFilename, string name, int age)
 {
 	Image i = LoadImage(imageFilename.c_str());
-
+	//string nullterm = " \0";
+	//char newName = name + nullterm;
 	Record* r = new Record;
 	r->image = i;
 	r->name = name;
 	r->age = age;
 
-	currentRecord.push_back(r);
+	records.push_back(r);
 	recordCount++;
 }
 
 DataFile::Record* DataFile::GetRecord(int index)
 {
-	return currentRecord[index];
+	//currentRecord =
+		return records[index];
 }
 
 void DataFile::Save(string filename)
@@ -39,16 +40,16 @@ void DataFile::Save(string filename)
 	outfile.write((char*)&recordCount, sizeof(int));
 
 	for (int i = 0; i < recordCount; i++)
-	{		
+	{
 		Color* imgdata = GetImageData(records[i]->image);
-				
+
 		int imageSize = sizeof(Color) * records[i]->image.width * records[i]->image.height;
 		int nameSize = records[i]->name.length();
 		int ageSize = sizeof(int);
 
 		outfile.write((char*)&records[i]->image.width, sizeof(int));
 		outfile.write((char*)&records[i]->image.height, sizeof(int));
-		
+
 		outfile.write((char*)&nameSize, sizeof(int));
 		outfile.write((char*)&ageSize, sizeof(int));
 
@@ -69,15 +70,8 @@ void DataFile::Load(string filename)
 	recordCount = 0;
 	infile.read((char*)&recordCount, sizeof(int));
 
-
-	//TODO: reformat for reading record when its needed not all at once
-	//in loop use seekg with current, skip number of bytes without reading
-	//kinda bit shifting but not by a certain amount
-	//use seekg to skip image data and name until find correct one
-	//skip by sizes
-	//calculate seekg amount (skipped)
 	for (int i = 0; i < recordCount; i++)
-	{		
+	{
 		int nameSize = 0;
 		int ageSize = 0;
 		int width = 0, height = 0, format = 0, imageSize = 0;
@@ -86,7 +80,6 @@ void DataFile::Load(string filename)
 		infile.read((char*)&height, sizeof(int));
 
 		imageSize = sizeof(Color) * width * height;
-
 		infile.read((char*)&nameSize, sizeof(int));
 		infile.read((char*)&ageSize, sizeof(int));
 
@@ -94,11 +87,10 @@ void DataFile::Load(string filename)
 		infile.read(imgdata, imageSize);
 
 		Image img = LoadImageEx((Color*)imgdata, width, height);
-		// to do account for null terminator set size to name plus null terminator
-		// 
-		char* name = new char[nameSize]; // Tom is size 3, make it 4 to make 4th a 0 for null terminator
+		char* name = new char[nameSize + 1];
+
 		int age = 0;
-				
+
 		infile.read((char*)name, nameSize);
 		infile.read((char*)&age, ageSize);
 
@@ -108,10 +100,9 @@ void DataFile::Load(string filename)
 		r->age = age;
 		records.push_back(r);
 
-		delete [] imgdata;
-		delete [] name;
+		delete[] imgdata;
+		delete[] name;
 	}
-
 	infile.close();
 }
 
