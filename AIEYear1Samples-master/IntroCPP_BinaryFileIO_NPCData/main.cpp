@@ -3,33 +3,29 @@
 
 int main(int argc, char* argv[])
 {
-    // Initialization
-    //--------------------------------------------------------------------------------------
+    //initiallises all the raylib variables for the window
     int screenWidth = 800;
     int screenHeight = 450;
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
+    //creates a datafile and begins loading the first file
     DataFile data;
     int currentRecordIdx = 0;
 
-    data.Load("npc_data.dat");
+    data.Load("npc_data.dat", currentRecordIdx);
 
-    DataFile::Record* currentRecord = data.GetRecord(currentRecordIdx);
+    DataFile::Record* currentRecord = data.GetRecord();
     Texture2D recordTexture = LoadTextureFromImage(currentRecord->image);
 
 
     SetTargetFPS(60);
-    //--------------------------------------------------------------------------------------
 
-    // Main game loop
-    while (!WindowShouldClose())    // Detect window close button or ESC key
+    while (!WindowShouldClose())
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
-
+        //if the left arrow key is pressed it and it is not at the first record
+        //it will set the current record id to 1 less than it currently is
+        //and then load all the information from the record id
         if (IsKeyPressed(KEY_LEFT))
         {
             if (currentRecordIdx != 0) {
@@ -38,10 +34,15 @@ int main(int argc, char* argv[])
                 {
                     currentRecordIdx = 0;
                 }
-                currentRecord = data.GetRecord(currentRecordIdx);
+                data.Load("npc_data.dat", currentRecordIdx);
+                currentRecord = data.GetRecord();
                 recordTexture = LoadTextureFromImage(currentRecord->image);
             }
         }
+
+        //if the right arrow key is pressed it and it is not at the last record
+        //it will set the current record id to 1 more than it currently is
+        //and then load all the information from the record id
 
         if (IsKeyPressed(KEY_RIGHT))
         {
@@ -52,14 +53,13 @@ int main(int argc, char* argv[])
                 {
                     currentRecordIdx = data.GetRecordCount();
                 }
-                currentRecord = data.GetRecord(currentRecordIdx);
+                data.Load("npc_data.dat", currentRecordIdx);
+                currentRecord = data.GetRecord();
                 recordTexture = LoadTextureFromImage(currentRecord->image);
             }
         }
 
-
-        // Draw
-        //----------------------------------------------------------------------------------
+        //this will begin drawing all the information onto the screen
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
@@ -73,13 +73,9 @@ int main(int argc, char* argv[])
         DrawText(to_string(currentRecord->age).c_str(), 10, 150, 20, LIGHTGRAY);
 
         EndDrawing();
-        //----------------------------------------------------------------------------------
     }
 
-    // De-Initialization
-    //--------------------------------------------------------------------------------------   
-    CloseWindow();        // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
+    CloseWindow(); 
 
     return 0;
 }

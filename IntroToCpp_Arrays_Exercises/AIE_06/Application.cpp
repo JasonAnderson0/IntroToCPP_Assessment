@@ -31,15 +31,10 @@ void Application::Run()
 
 void Application::Load()
 {
-	// Task1:
-	// Initialise all values in m_tiles array to a random
-	// value between 0 and 5 exclusive;
-	// -----------------------------------------------------
 	for (int i = 0; i < ROWS * COLS; i++) 
 	{
 		m_tiles[i] = rand() % 5;
 	}
-	// -----------------------------------------------------
 }
 
 void Application::Unload()
@@ -52,13 +47,9 @@ void Application::Update(float deltaTime)
 	if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
 	{
 		Vector2 mousePos = GetMousePosition();
-
-		// Task 3:
-		// TODO: Calculate row and col index based on the mouse positon
 		int rowIndex = mousePos.y / m_tileWidth; 
 		int colIndex = mousePos.x / m_tileHeight;
 
-		// TODO: calculate the index of the tile clicked on based on the row/col index
 		int tileIndex = rowIndex * COLS + colIndex;
 
 		m_tiles[tileIndex] += 1;
@@ -72,32 +63,17 @@ void Application::Draw()
 	BeginDrawing();
 	ClearBackground(RAYWHITE);
 
-	// Task2:
-	// use a nested loop to iterate over rows and columns
-	// Use raylib's DrawRect method to draw each tile in the array.
-	// 	   use the row and col index multipled by m_tileHeight/m_tileWidth
-	// 	   to calculate the x and y position for each rectangle.
-	// 
-	// change the color of the rect drawn based on the value of the tile.
-	// 	   We have created a helper function you can use "GetTileColor"
-	// --------------------------------------------------------------------
-	// write your code here
 	for (int rowIndex = 0; rowIndex < ROWS; rowIndex++){
 		for (int colIndex = 0; colIndex < COLS; colIndex++) {
 
 			int xPos = colIndex * m_tileWidth;
 			int yPos = rowIndex * m_tileHeight;
 			int index = rowIndex * COLS + colIndex;
-			Color color = GetTileColor(m_tiles[index]); // pass in the tilevalue
+			Color color = GetTileColor(m_tiles[index]);
 
 			DrawRectangle(xPos, yPos, m_tileWidth, m_tileHeight, color);
 		}
 	}
-
-
-
-	// --------------------------------------------------------------------
-
 	EndDrawing();
 }
 
