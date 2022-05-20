@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include<raylib.h>
 using namespace std;
 
 class SceneObject
