@@ -1,35 +1,28 @@
 #include "raylib.h"
 #include "Game.h"
 #include <stdlib.h>
+#include <vector>
+using namespace std;
 
-Game::Game() {}
+class Game {
+	Game() {}
 
-Game::~Game() {}
+	~Game() {}
 
-void Game:: Run() 
-{
-	InitWindow(windowWidth, windowHeight, "Game");
-	SetTargetFPS(60);
+	vector<SceneObject> gameObjects;
 
-	Load();
+	void Load()
+	{
 
-	while (!WindowShouldClose()) {
-		Update(GetFrameTime());
-		Draw();
 	}
-	Unload();
-}
 
-void Game::Load() {
-	
-}
+	void Update(float deltaTime)
+	{
 
-void Game::Update(float deltaTime) 
-{
+	}
 
-}
-
-void Game::Draw() {
-	BeginDrawing();
-	ClearBackground(RAYWHITE);
-}
+	void Draw() {
+		BeginDrawing();
+		ClearBackground(RAYWHITE);
+	}
+};

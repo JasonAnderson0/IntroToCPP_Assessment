@@ -1,7 +1,25 @@
-﻿  main.cpp
+﻿  Game.cpp
   SceneObject.cpp
   SpriteObject.cpp
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\SpriteObject.cpp(7,1): error C2504: 'SceneObject': base class undefined
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\SpriteObject.cpp(11,32): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\SpriteObject.cpp(12,33): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\SpriteObject.cpp(16,1): error C2664: 'Image LoadImage(const char *)': cannot convert argument 1 from 'std::string' to 'const char *'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\SpriteObject.cpp(16,25): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\packages\raylib.4.0.0.6\build\native\include\raylib.h(1201,13): message : see declaration of 'LoadImage'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\SpriteObject.cpp(24,26): error C2065: 'vect': undeclared identifier
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\SpriteObject.cpp(25,2): error C2143: syntax error: missing ';' before '}'
+  main.cpp
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\main.cpp(13,15): error C2248: 'Game::Load': cannot access private member declared in class 'Game'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.h(12): message : see declaration of 'Game::Load'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.h(4): message : see declaration of 'Game'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\main.cpp(16,35): error C2248: 'Game::Update': cannot access private member declared in class 'Game'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.h(17): message : see declaration of 'Game::Update'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.h(4): message : see declaration of 'Game'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\main.cpp(17,19): error C2248: 'Game::Draw': cannot access private member declared in class 'Game'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.h(18): message : see declaration of 'Game::Draw'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.h(4): message : see declaration of 'Game'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\main.cpp(19,17): error C2248: 'Game::Unload': cannot access private member declared in class 'Game'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.h(13): message : see declaration of 'Game::Unload'
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.h(4): message : see declaration of 'Game'
   Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-Game.obj : error LNK2019: unresolved external symbol "private: void __cdecl Game::Unload(void)" (?Unload@Game@@AEAAXXZ) referenced in function "public: void __cdecl Game::Run(void)" (?Run@Game@@QEAAXXZ)
-C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\x64\Debug\main.exe : fatal error LNK1120: 1 unresolved externals

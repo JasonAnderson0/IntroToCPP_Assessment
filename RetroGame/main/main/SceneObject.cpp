@@ -3,20 +3,25 @@
 #include<raylib.h>
 using namespace std;
 
-class SceneObject
+public class SceneObject
 {
 public:
 	SceneObject() {};
 
 
 	vector<SceneObject> children;
-	//SceneObject parent = null;
+	SceneObject* parent = nullptr;
+	//SceneObject& parentRef = parent;
 
 	float xPos = 0;
 	float yPos = 0;
 
 	vector<float*> globalTransform = {&xPos, &yPos};
 	vector<float>localTransform;
+
+	//SceneObject Parent() { {return parent; } }
+
+
 
 	virtual void Update(float deltaTime) {
 		OnUpdate(deltaTime);

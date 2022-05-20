@@ -4,8 +4,19 @@
 int main()
 {
     Game game;
+    int windowWidth = 800;
+    int windowHeight = 800;
 
-    game.Run();
+    InitWindow(windowWidth, windowHeight, "Game");
+    SetTargetFPS(60);
+
+    game.Load();
+
+    while (!WindowShouldClose()) {
+        game.Update(GetFrameTime());
+        game.Draw();
+    }
+    game.Unload();
 }
 
 
