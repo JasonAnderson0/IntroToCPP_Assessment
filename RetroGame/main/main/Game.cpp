@@ -2,12 +2,13 @@
 #include "Game.h"
 #include <stdlib.h>
 #include <vector>
+#include "SceneObject.h"
 using namespace std;
 
-class Game {
-	Game() {}
 
-	~Game() {}
+	Game::Game() {}
+
+	Game::~Game() {}
 
 	vector<SceneObject> gameObjects;
 
@@ -25,4 +26,3 @@ class Game {
 		BeginDrawing();
 		ClearBackground(RAYWHITE);
 	}
-};

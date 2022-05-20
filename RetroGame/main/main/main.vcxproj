@@ -198,7 +198,8 @@
     <ClInclude Include="..\packages\raylib.4.0.0.6\build\native\include\Wave.hpp" />
     <ClInclude Include="..\packages\raylib.4.0.0.6\build\native\include\Window.hpp" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Math.h" />
+    <ClInclude Include="SceneObject.h" />
+    <ClInclude Include="SpriteObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
