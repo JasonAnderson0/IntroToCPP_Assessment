@@ -1,5 +1,4 @@
 ﻿  Game.cpp
-  main.cpp
-  Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  main.vcxproj -> C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\x64\Debug\main.exe
+C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Ship.h(23,28): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Ship.h(24,27): warning C4390: ';': empty controlled statement found; is this the intent?
+  main.vcxproj -> C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\x64\Debug\main.exe

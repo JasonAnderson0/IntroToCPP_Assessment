@@ -142,7 +142,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SceneObject.cpp" />
-    <ClCompile Include="SpriteObject.cpp" />
+    <ClCompile Include="Ship.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -199,7 +199,7 @@
     <ClInclude Include="..\packages\raylib.4.0.0.6\build\native\include\Window.hpp" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="SceneObject.h" />
-    <ClInclude Include="SpriteObject.h" />
+    <ClInclude Include="Ship.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

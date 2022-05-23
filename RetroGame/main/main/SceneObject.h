@@ -7,48 +7,34 @@ using namespace std;
 class SceneObject
 {
 public:
+		//transform variables
+		Vector2 Position;
+		Vector2 Velocity; 
+		float Radius = 0;
+		float Rotation = 0;
+		float Scale = 1;
+
+		//Texture variables
+		Texture2D Sprite;
+
 		SceneObject() {};
-
-
-		vector<SceneObject> children;
-		SceneObject* parent = nullptr;
-		//SceneObject& parentRef = parent;
-
-		float xPos = 0;
-		float yPos = 0;
-
-		vector<float*> globalTransform = { &xPos, &yPos };
-		vector<float>localTransform;
-
-		//SceneObject Parent() { {return parent; } }
-
-
-
-		virtual void Update(float deltaTime) {
-			OnUpdate(deltaTime);
-
-			for (SceneObject child : children)
-			{
-				child.Update(deltaTime);
-			}
+		SceneObject(Vector2 position, float radius, Texture2D sprite) {
+			Position = position;
+			Radius = radius;
+			Sprite = sprite;
 		}
 
-		void Draw() {
-			OnDraw();
-
-			for (SceneObject child : children)
-			{
-				child.Draw();
-			}
+		virtual void Update(float deltaTime) 
+		{
+			//Position += Velocity , deltaTime;
 		}
 
-		virtual void OnUpdate(float deltaTime) {
-
+		void virtual Draw() 
+		{
+			DrawTextureEx(Sprite, Position, Rotation, Scale, WHITE);
+			DrawCircleLines((int)Position.x, (int)Position.y, Radius * Scale, YELLOW);
 		}
-		virtual void OnDraw() {}
 
-		void UpdateTransform() {
-
-		}
+		virtual void OnCollision(SceneObject other){}
 };
 
