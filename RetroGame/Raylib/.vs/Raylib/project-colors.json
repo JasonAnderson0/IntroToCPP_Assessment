@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "de4e0047-a3e2-4c18-9cee-57f9aa6c248f": {
+      "ProjectGuid": "de4e0047-a3e2-4c18-9cee-57f9aa6c248f",
+      "DisplayName": "Raylib",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

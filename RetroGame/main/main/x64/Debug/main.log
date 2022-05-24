@@ -1,5 +1,11 @@
-﻿  Game.cpp
-  main.cpp
+﻿  Bullet.cpp
+C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Bullet.h(18,28): error C3861: 'Cos': identifier not found
+C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Bullet.h(18,36): error C3861: 'Sin': identifier not found
+  Game.cpp
+  SceneObject.cpp
+C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\SceneObject.cpp(9,1): error C2011: 'SceneObject': 'class' type redefinition
+C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\SceneObject.h(7): message : see declaration of 'SceneObject'
+  Ship.cpp
+C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Ship.cpp(6,12): error C2011: 'Ship': 'class' type redefinition
+C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Ship.h(5): message : see declaration of 'Ship'
   Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  main.vcxproj -> C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\x64\Debug\main.exe

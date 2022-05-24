@@ -7,48 +7,45 @@ using namespace std;
 class SceneObject
 {
 public:
+		//transform variables
+		Vector2 Position;
+		Vector2 Velocity; 
+		float Radius;
+		float Rotation;
+		float Scale;
+
+		//Texture variables
+		Texture2D Sprite;
+
 		SceneObject() {};
+		SceneObject(Vector2 position, float radius, Texture2D sprite) {}
 
-
-		vector<SceneObject> children;
-		SceneObject* parent = nullptr;
-		//SceneObject& parentRef = parent;
-
-		float xPos = 0;
-		float yPos = 0;
-
-		vector<float*> globalTransform = { &xPos, &yPos };
-		vector<float>localTransform;
-
-		//SceneObject Parent() { {return parent; } }
-
-
-
-		virtual void Update(float deltaTime) {
-			OnUpdate(deltaTime);
-
-			for (SceneObject child : children)
-			{
-				child.Update(deltaTime);
-			}
+		virtual void Update(float deltaTime) 
+		{
 		}
 
-		void Draw() {
-			OnDraw();
-
-			for (SceneObject child : children)
-			{
-				child.Draw();
-			}
+		void virtual Draw() 
+		{
 		}
 
-		virtual void OnUpdate(float deltaTime) {
-
-		}
-		virtual void OnDraw() {}
-
-		void UpdateTransform() {
-
-		}
+		virtual void OnCollision(SceneObject other){}
 };
+
+//struct Vector2 {
+//public:
+//	float x, y;
+//
+//	Vector2() { x = 0; y = 0;}
+//	Vector2(float X, float Y) { x = X; y = Y;}
+//
+//	static Vector2 operator +(Vector2 lhs, Vector2 rhs)
+//	{
+//		return Vector2(lhs.x + rhs.x, lhs.y + rhs.y);
+//	}
+//
+//	static Vector2 operator *(float scale, Vector2 vector)
+//	{
+//		return Vector2(scale * vector.x, scale * vector.y);
+//	}
+//};
 
