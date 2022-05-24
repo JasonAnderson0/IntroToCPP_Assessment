@@ -8,8 +8,6 @@ public:
 	void Load();
 	void Unload();
 
-	void Update();
-
 	void Update(float deltaTime);
 	void Draw();
 
