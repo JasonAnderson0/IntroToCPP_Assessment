@@ -13,7 +13,6 @@ public:
 		float Radius;
 		float Rotation;
 		float Scale;
-		bool Destroyed = false;
 
 		//Texture variables
 		Texture2D Sprite;

@@ -5,9 +5,13 @@
 
 
 Ship::Ship() {}
-Ship::Ship(Vector2 position, Texture2D sprite, float rotation)
+Ship::Ship(Vector2 position, Texture2D sprite, float rotation) : SceneObject(position, 40, sprite, 90, 1)
 {
-		bulletSprite = LoadTexture("Assets/Bullet.png");
+	Position = position;
+	Sprite = sprite;
+	Rotation = rotation;
+
+	bulletSprite = LoadTexture("Assets/Bullet.png");
 }
 
 

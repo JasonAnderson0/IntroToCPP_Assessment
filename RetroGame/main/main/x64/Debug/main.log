@@ -1,4 +1,2 @@
-﻿  Game.cpp
-C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.cpp(30,12): warning C4930: 'Asteroid asteroid(void)': prototyped function not called (was a variable definition intended?)
-C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.cpp(38,7): error C2228: left of '.Update' must have class/struct/union
-C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.cpp(42,6): error C3867: 'Game::ship': non-standard syntax; use '&' to create a pointer to member
+﻿  Asteroid.cpp
+  main.vcxproj -> C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\x64\Debug\main.exe

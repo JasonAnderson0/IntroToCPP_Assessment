@@ -8,7 +8,9 @@
 
 Game::Game() 
 {
-
+	startPos = { 400,400 };
+	asteroidTexture = LoadTexture("Assets/Asteroid.png");
+	shipTexture = LoadTexture("Assets/Ship_L.png");
 };
 
 Game::~Game() {};
@@ -17,11 +19,11 @@ Game::~Game() {};
 
 void Game::Load()
 {	
-	shipTexture = LoadTexture("Assets/Ship_L");
-	ship().Position = startPos;
+	ship.Sprite = shipTexture;
+	ship.Position = startPos;
+	ship.Radius = 40;
 
 
-	asteroidTexture = LoadTexture("Assets/Asteroid");
 
 	SpawnAsteroids();
 }
@@ -30,26 +32,28 @@ void Game::Load()
 void Game::SpawnAsteroids() 
 {
 	for (int i = 0; i < 8; i++) {
-		Asteroid asteroid();
-
-		//asteroidList.push_back(asteroid);
+		Asteroid asteroid;
+		asteroid.Sprite = asteroidTexture;
+		asteroidList.push_back(asteroid);
 	}
 }
 
 void Game::Update(float deltaTime)
 {
-	ship().Update(deltaTime);
+	ship.Update(deltaTime);
 
-	for (Asteroid asteroids : asteroidList) {
+	for (Asteroid &asteroids : asteroidList) {
 		asteroids.Update(deltaTime);
 		if (asteroids.CheckCollision(ship)) 
 		{
 			ship.Destroyed = true;
 		}
-		for (Bullet bullet : bulletList)
-		if(asteroids.CheckCollision(bullet))
+		for (Bullet &bullet : bulletList) 
 		{
-			asteroids.Destroyed = true;
+			if (asteroids.CheckCollision(bullet))
+			{
+				asteroids.Destroyed = true;
+			}
 		}
 	}
 }
@@ -58,10 +62,12 @@ void Game::Draw() {
 	BeginDrawing();
 	ClearBackground(BLACK);
 
-	ship().Draw();
+	ship.Draw();
 
-	for (Asteroid asteroids : asteroidList) {
+	for (Asteroid &asteroids : asteroidList) {
 		asteroids.Draw();
 	}
 	EndDrawing();
 }
+
+void Game::Unload() {}

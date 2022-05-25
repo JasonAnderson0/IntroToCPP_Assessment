@@ -23,5 +23,5 @@ public:
 	Texture2D shipTexture;
 	Texture2D asteroidTexture;
 	Vector2 startPos;
-	Ship ship();
+	Ship ship;
 };

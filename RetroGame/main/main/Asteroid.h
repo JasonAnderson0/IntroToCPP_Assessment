@@ -10,7 +10,7 @@ public:
     bool Destroyed = false;
     Vector2 Direction;
     Asteroid();
-    Asteroid(Vector2 position, float scale, Texture2D sprite);
+    Asteroid(Vector2 position, float scale, Texture2D sprite, Vector2 direction);
 
     bool CheckCollision(Bullet other);
     bool CheckCollision(Ship other);

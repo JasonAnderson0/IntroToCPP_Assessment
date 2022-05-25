@@ -3,9 +3,10 @@
 #include "raylib.h"
 
 
-Bullet::Bullet() {}
+Bullet::Bullet() { timer = 0; }
 Bullet::Bullet(Vector2 position, float rotation, Texture2D sprite)
 {
+    timer = 0;
 }
 
 void Bullet::Update(float deltaTime)
