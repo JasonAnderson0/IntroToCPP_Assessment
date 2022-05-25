@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 #include<raylib.h>
-using namespace std;
+#include "string"
 
 class SceneObject
 {
@@ -13,39 +13,18 @@ public:
 		float Radius;
 		float Rotation;
 		float Scale;
+		bool Destroyed = false;
 
 		//Texture variables
 		Texture2D Sprite;
 
-		SceneObject() {};
-		SceneObject(Vector2 position, float radius, Texture2D sprite) {}
+		SceneObject();
+		SceneObject(Vector2 position, float radius, Texture2D sprite, float rotation, float scale);
 
-		virtual void Update(float deltaTime) 
-		{
-		}
+		virtual void Update(float deltaTime);
 
-		void virtual Draw() 
-		{
-		}
+		virtual void Draw();
 
-		virtual void OnCollision(SceneObject other){}
+		virtual void OnCollision(SceneObject other);
 };
-
-//struct Vector2 {
-//public:
-//	float x, y;
-//
-//	Vector2() { x = 0; y = 0;}
-//	Vector2(float X, float Y) { x = X; y = Y;}
-//
-//	static Vector2 operator +(Vector2 lhs, Vector2 rhs)
-//	{
-//		return Vector2(lhs.x + rhs.x, lhs.y + rhs.y);
-//	}
-//
-//	static Vector2 operator *(float scale, Vector2 vector)
-//	{
-//		return Vector2(scale * vector.x, scale * vector.y);
-//	}
-//};
 

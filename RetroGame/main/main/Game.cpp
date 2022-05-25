@@ -5,49 +5,63 @@
 #include "SceneObject.h"
 #include "Ship.h"
 #include "string"
-#include <list>
-using namespace std;
 
-Game::Game() {};
+Game::Game() 
+{
+
+};
 
 Game::~Game() {};
 
-	vector<SceneObject> gameObjects;
-	//list<SceneObject> gameObjects;
-	vector<SceneObject> asteroidList;
 
-	void Game::Load()
-	{
-		Texture2D shipTexture = LoadTexture("Assets/ship_L.png");
-		Vector2 startPos = { 400,400 };
-		Ship ship(startPos, shipTexture);
-		Ship &playerShip = ship;
-		if (&shipTexture != NULL) {
-			cout << "Found";
-		}
-		gameObjects.push_back(playerShip);
+
+void Game::Load()
+{	
+	shipTexture = LoadTexture("Assets/Ship_L");
+	ship().Position = startPos;
+
+
+	asteroidTexture = LoadTexture("Assets/Asteroid");
+
+	SpawnAsteroids();
+}
+
+
+void Game::SpawnAsteroids() 
+{
+	for (int i = 0; i < 8; i++) {
+		Asteroid asteroid();
+
+		//asteroidList.push_back(asteroid);
 	}
+}
 
-	void Game::Update(float deltaTime)
-	{
-		for (SceneObject sceneObject : gameObjects) {
-			//if(sceneObject is Ship)
-			sceneObject.Position.x = 400;
-			sceneObject.Position.y = 400;
+void Game::Update(float deltaTime)
+{
+	ship().Update(deltaTime);
+
+	for (Asteroid asteroids : asteroidList) {
+		asteroids.Update(deltaTime);
+		if (asteroids.CheckCollision(ship)) 
+		{
+			ship.Destroyed = true;
 		}
-
-		for (SceneObject object : gameObjects) {
-			object.Update(deltaTime);
+		for (Bullet bullet : bulletList)
+		if(asteroids.CheckCollision(bullet))
+		{
+			asteroids.Destroyed = true;
 		}
-
 	}
+}
 
-	void Game::Draw() {
-		BeginDrawing();
-		ClearBackground(RAYWHITE);
+void Game::Draw() {
+	BeginDrawing();
+	ClearBackground(BLACK);
 
-		for (SceneObject object : gameObjects) {
-			object.Draw();
-		}
-		EndDrawing();
+	ship().Draw();
+
+	for (Asteroid asteroids : asteroidList) {
+		asteroids.Draw();
 	}
+	EndDrawing();
+}

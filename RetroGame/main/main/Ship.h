@@ -1,3 +1,4 @@
+#pragma once
 #include "SceneObject.h"
 #include "raylib.h"
 
@@ -5,16 +6,16 @@
 class Ship : public SceneObject
 {
 public: 
-	float turnSpeed;
-	float speed;
+	const float turnSpeed = 180;
+	const float speed = 100;
+	const float radius = 40;
 	Texture2D bulletSprite;
+	Texture2D sprite;
 	
-
-	Ship(Vector2 position, Texture2D sprite) 
-	{
-	}
+	Ship();
+	Ship(Vector2 position, Texture2D sprite, float rotation);
 
 	
-	 void Update(float deltaTime) override 
-	 {}
+	void Update(float deltaTime) override;
+	void Draw() override;
 };

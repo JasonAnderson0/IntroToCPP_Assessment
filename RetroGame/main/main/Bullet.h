@@ -1,22 +1,18 @@
 #pragma once
 #include "SceneObject.h"
 #include "raylib.h"
-#include <cmath>
 
 class Bullet :
     public SceneObject
 {
 private:
-    float lifeTime = 3;
+    const float lifeTime = 3;
+    const float speed = 30;
     float timer;
 
 public:
-    Bullet(Vector2 position, float rotation, float speed, Texture2D sprite)
-    {
-        Rotation = rotation;
-        float r = (Rotation - 90) / 180 * PI;
-        Velocity = Vector2(Cos(r), Sin(r)) * speed;
-    }
-
+    Bullet();
+    Bullet(Vector2 position, float rotation, Texture2D sprite);
+    void Update(float deltaTime) override;
 };
 

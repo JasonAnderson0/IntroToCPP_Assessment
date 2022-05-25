@@ -1,11 +1,4 @@
-﻿  Bullet.cpp
-C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Bullet.h(18,28): error C3861: 'Cos': identifier not found
-C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Bullet.h(18,36): error C3861: 'Sin': identifier not found
-  Game.cpp
-  SceneObject.cpp
-C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\SceneObject.cpp(9,1): error C2011: 'SceneObject': 'class' type redefinition
-C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\SceneObject.h(7): message : see declaration of 'SceneObject'
-  Ship.cpp
-C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Ship.cpp(6,12): error C2011: 'Ship': 'class' type redefinition
-C:\Users\moosn\OneDrive\Documents\GitHub\IntroToCPP_Assessment\RetroGame\main\main\Ship.h(5): message : see declaration of 'Ship'
-  Generating Code...
+﻿  Game.cpp
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.cpp(30,12): warning C4930: 'Asteroid asteroid(void)': prototyped function not called (was a variable definition intended?)
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.cpp(38,7): error C2228: left of '.Update' must have class/struct/union
+C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\main\Game.cpp(42,6): error C3867: 'Game::ship': non-standard syntax; use '&' to create a pointer to member

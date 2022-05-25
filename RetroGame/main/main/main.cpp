@@ -3,12 +3,14 @@
 
 int main()
 {
-    Game game;
+  
     int windowWidth = 800;
     int windowHeight = 800;
 
     InitWindow(windowWidth, windowHeight, "Game");
+
     SetTargetFPS(60);
+    Game game;
 
     game.Load();
 
@@ -16,7 +18,6 @@ int main()
         game.Update(GetFrameTime());
         game.Draw();
     }
-    //game.Unload();
 }
 
 

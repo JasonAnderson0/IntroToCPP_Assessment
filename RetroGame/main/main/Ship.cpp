@@ -1,26 +1,35 @@
 #include "SceneObject.h"
 #include "raylib.h"
 #include "Ship.h"
+#include "Bullet.h"
 
 
-class Ship : public SceneObject
+Ship::Ship() {}
+Ship::Ship(Vector2 position, Texture2D sprite, float rotation)
 {
-
-	float turnSpeed = 180;
-	float speed = 100;
-	Texture2D bulletSprite;
-
-
-	Ship(Vector2 position, Texture2D sprite)
-	{
 		bulletSprite = LoadTexture("Assets/Bullet.png");
-	}
+}
 
 
-	void Update(float deltaTime) override
+void Ship::Update(float deltaTime)
+{
+	SceneObject::Update(deltaTime);
+	float thrust = IsKeyDown(KEY_UP) ? 1 : 0;
+	//float r = (Rotation - 90) / 180 * PI;
+	//Vector2 force = (Cos(r), Sin(r)) * speed * thrust;
+	Position.x += speed * thrust * deltaTime;
+	Position.y += speed * thrust * deltaTime;
+
+	if(IsKeyDown(KEY_SPACE))
 	{
-		SceneObject::Update(deltaTime);
-		if (IsKeyDown(KEY_RIGHT));
-		if (IsKeyDown(KEY_LEFT));
+		Bullet bullet(Position, Rotation, bulletSprite);
 	}
-};
+}
+
+void Ship::Draw() 
+{
+	if (Destroyed == false) {
+		DrawTextureEx(Sprite, Position, Rotation, Scale, WHITE);
+		DrawCircleLines((int)Position.x, (int)Position.y, Radius * Scale, YELLOW);
+	}
+}
