@@ -10,11 +10,12 @@ public:
     bool Destroyed = false;
     Vector2 Velocity;
     Texture2D Sprite;
+    float Speed;
     Asteroid();
-    Asteroid(Vector2 position, Vector2 velocity, float scale, Texture2D sprite);
+    Asteroid(Vector2 position, Vector2 velocity, float scale, Texture2D sprite, float speed);
 
     bool CheckCollision(Bullet other);
-    bool CheckCollision(Ship other);
+    //bool CheckCollision(Ship other);
 
     void Update(float deltaTime);
 

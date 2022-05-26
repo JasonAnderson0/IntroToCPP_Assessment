@@ -10,9 +10,10 @@ Ship::Ship()
 	Position = { 400,400 };
 	Velocity = { 0,0 };
 	radius = 40;
-	Speed = 300;
+	Speed = 200;
 	Destroyed = false;
 	Sprite = LoadTexture("Assets/Ship_L.png");
+	Scale = 1;
 }
 Ship::Ship(Vector2 position, Vector2 velocity, Texture2D sprite, float rotation, float speed) : SceneObject(position, velocity, 40, 90, 1)
 {
@@ -43,19 +44,27 @@ void Ship::Update(float deltaTime)
 
 	Rotation += turn * turnSpeed * deltaTime;
 
-	float width = (float)GetScreenWidth();
-	float height = (float)GetScreenHeight();
+	float w = (float)GetScreenWidth();
+	float h = (float)GetScreenHeight();
+	
 
-	if (Position.x < -Radius) Position.x = width + height;
-	if (Position.y < -Radius) Position.y = -Radius;
-	if (Position.y > Radius + width) Position.y = Radius + height;
-	if (Position.x > width + Radius) Position.x = -Radius;
+
+	Vector2 p = Position;
+	if (Position.x < -Radius) p.x = w + Radius;
+	if (Position.y < -Radius) p.y = w + Radius;
+	if (Position.x > w + Radius) p.x = -Radius;
+	if (Position.y > w + Radius) p.y = -Radius;
+
+	Position = p;
+
 }
 
 void Ship::Draw() 
 {
 	if (Destroyed == false) {
-		DrawTextureEx(Sprite, Position, Rotation, Scale, WHITE);
+		Rectangle sourceRect = { 0,0,(float)Sprite.width, (float)Sprite.height };
+		Rectangle distRect = { Position.x, Position.y, Sprite.width * Scale, Sprite.height * Scale};
+		DrawTexturePro(Sprite, sourceRect, distRect, { Sprite.width / 2 * Scale, Sprite.height / 2 * Scale }, Rotation, WHITE);
 		DrawCircleLines((int)Position.x, (int)Position.y, Radius * Scale, YELLOW);
 	}
 }

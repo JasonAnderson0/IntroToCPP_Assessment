@@ -14,7 +14,7 @@ public:
 
 	void Update(float deltaTime);
 	void Draw();
-	void SpawnAsteroids();
+	void SpawnAsteroids(int amount);
 
 	std::vector<Bullet> bulletList;
 	std::vector<Asteroid> asteroidList;
@@ -22,4 +22,6 @@ public:
 	Texture2D asteroidTexture;
 	Texture2D bulletSprite;
 	Ship ship;
+	float timer;
+	float spawnRate = 5;
 };

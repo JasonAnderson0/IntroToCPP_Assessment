@@ -6,8 +6,8 @@ class Bullet :
     public SceneObject
 {
 private:
-    const float lifeTime = 3;
-    const float speed = 30;
+    const float lifeTime = 5;
+    const float speed = 250;
     float timer;
     bool Destroyed;
     Texture2D Sprite;
