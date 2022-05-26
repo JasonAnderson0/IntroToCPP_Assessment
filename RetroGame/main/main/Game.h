@@ -16,12 +16,10 @@ public:
 	void Draw();
 	void SpawnAsteroids();
 
-
-	//std::vector<SceneObject> gameObjects;
 	std::vector<Bullet> bulletList;
 	std::vector<Asteroid> asteroidList;
 	Texture2D shipTexture;
 	Texture2D asteroidTexture;
-	Vector2 startPos;
+	Texture2D bulletSprite;
 	Ship ship;
 };

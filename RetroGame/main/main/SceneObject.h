@@ -8,17 +8,14 @@ class SceneObject
 {
 public:
 		//transform variables
-		Vector2 Position;
-		Vector2 Velocity; 
+		Vector2 Position = {0,0};
+		Vector2 Velocity = {0,0};
 		float Radius;
 		float Rotation;
 		float Scale;
 
-		//Texture variables
-		Texture2D Sprite;
-
-		SceneObject();
-		SceneObject(Vector2 position, float radius, Texture2D sprite, float rotation, float scale);
+		class SceneObject();
+		class SceneObject(Vector2 position,Vector2 velocity, float radius,float rotation, float scale);
 
 		virtual void Update(float deltaTime);
 

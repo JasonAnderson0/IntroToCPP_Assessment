@@ -8,9 +8,10 @@ class Asteroid :
 {
 public:
     bool Destroyed = false;
-    Vector2 Direction;
+    Vector2 Velocity;
+    Texture2D Sprite;
     Asteroid();
-    Asteroid(Vector2 position, float scale, Texture2D sprite, Vector2 direction);
+    Asteroid(Vector2 position, Vector2 velocity, float scale, Texture2D sprite);
 
     bool CheckCollision(Bullet other);
     bool CheckCollision(Ship other);

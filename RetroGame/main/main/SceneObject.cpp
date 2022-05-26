@@ -5,11 +5,18 @@
 #include "string"
 
 
-SceneObject::SceneObject() {}
-SceneObject::SceneObject(Vector2 position, float radius, Texture2D sprite, float rotation,float scale) {
+SceneObject::SceneObject() 
+{
+	Position = { 0,0 };
+	Velocity = {0,0};
+	Radius = 0;
+	Rotation = 0;
+	Scale = 1;
+}
+SceneObject::SceneObject(Vector2 position, Vector2 velocity, float radius, float rotation,float scale) {
 	Position = position;
+	Velocity = velocity;
 	Radius = radius;
-	Sprite = sprite;
 	Rotation = rotation;
 	Scale = scale;
 }
