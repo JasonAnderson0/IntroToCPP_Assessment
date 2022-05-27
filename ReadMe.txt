@@ -3,7 +3,8 @@ The executable, and the npc data file are in the main file as well as the docume
 The solution is in the AIEYear1Samples-master file
 
 Arrays Exercises:
-The executables for each exercise are in Release file. 
+The executables for each exercise are in Release file.
+system("pause") was put at the end of each code to keep the window there until the user is ready to close it.
 The solution is in the main file.
 
 Version Control:
