@@ -23,5 +23,7 @@ public:
 	Texture2D bulletSprite;
 	Ship ship;
 	float timer;
+	float shootTimer;
+	float shootCooldown = 0.5;
 	float spawnRate = 5;
 };

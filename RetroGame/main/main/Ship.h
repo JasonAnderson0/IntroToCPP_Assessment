@@ -7,6 +7,7 @@ class Ship : public SceneObject
 {
 public: 
 	const float turnSpeed = 180;
+	bool canShoot;
 	float Speed;
 	float radius;
 	Vector2 Position;

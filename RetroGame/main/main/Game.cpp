@@ -37,23 +37,26 @@ void Game::Update(float deltaTime)
 {
 	ship.Update(deltaTime);
 	timer += deltaTime;
+	shootTimer += deltaTime;
 	for (Asteroid &asteroids : asteroidList) {
 		asteroids.Update(deltaTime);
-		//if (asteroids.CheckCollision(ship)) 
-		//{
-		//	ship.Destroyed = true;
-		//}
+		if (asteroids.CheckCollision(ship) && asteroids.Destroyed == false) 
+		{
+			ship.Destroyed = true;
+		}
 		for (Bullet &bullet : bulletList) 
 		{
-			if (asteroids.CheckCollision(bullet))
+			if (asteroids.CheckCollision(bullet) && asteroids.Destroyed == false)
 			{
 				asteroids.Destroyed = true;
 			}
 		}
 	}
 
-	if (IsKeyDown(KEY_SPACE))
+	if (IsKeyDown(KEY_SPACE) && ship.canShoot == true)
 	{
+		ship.canShoot = false;
+		shootTimer = 0;
 		Bullet bullet(ship.Position, ship.Velocity, ship.Rotation, bulletSprite);
 		bulletList.push_back(bullet);
 	}
@@ -65,6 +68,10 @@ void Game::Update(float deltaTime)
 	{
 		timer = 0;
 		SpawnAsteroids(1);
+	}
+	if(shootTimer > shootCooldown)
+	{
+		ship.canShoot = true;
 	}
 }
 

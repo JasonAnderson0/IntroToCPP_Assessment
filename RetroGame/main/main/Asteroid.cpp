@@ -8,15 +8,16 @@ Asteroid::Asteroid()
 {
     float Velx = (float)(rand() % 100 - 50);
     Velocity = { Velx , Velx};
-    float Posx = (float)(rand() % GetScreenWidth());
-    if (Posx < 500 && Posx > 400) {
+    float Posx = (float)(rand() % GetScreenWidth()); float Posy = (float)(rand() % GetScreenWidth());
+    if (Posx < 500 && Posx > 400 && Posy > 400 && Posy > 400){
         Posx -= 100;
+        Posy -= 100;
     }
-    Position = { Posx , Posx };
+    Position = { Posx , Posy };
     Sprite = LoadTexture("Assets/Asteroid.png");
     Scale = (float)(rand() % 3);
     Speed = (float)(rand() & 20 - 10);
-    Radius = 40;
+    Radius = 20;
 }
 Asteroid::Asteroid(Vector2 position, Vector2 velocity, float scale, Texture2D sprite, float speed) : SceneObject(position, velocity, 40, 90, 1)
 {
@@ -50,36 +51,32 @@ void Asteroid::Update(float deltaTime)
     Position = p;
 }
 
-//bool Asteroid::CheckCollision(Ship other) 
-//{
-//    float obstx = (Position.x * Position.x - other.Position.x * other.Position.x);
-//    float obsty = (Position.y * Position.y - other.Position.y * other.Position.y);
-//    float obstdist = obstx - obsty;
-//    float rads = (Radius * Radius + other.Radius * other.Radius);
-//
-//
-//
-//    //return true;
-//    return(obstdist < rads * rads);
-//}
+bool Asteroid::CheckCollision(Ship other) 
+{
+float obstx = (Position.x - other.Position.x);
+float obsty = (Position.y - other.Position.y);
+float obstdist = obstx * obstx + obsty * obsty;
+float rads = Radius + other.Radius;
+
+return(obstdist < rads* rads);
+}
 
 bool Asteroid::CheckCollision(Bullet other) {
-    float obstx = (Position.x * Position.x - other.Position.x * other.Position.x);
-    float obsty = (Position.y * Position.y - other.Position.y * other.Position.y);
-    float obstdist = obstx + obsty;
+    float obstx = (Position.x - other.Position.x);
+    float obsty = (Position.y - other.Position.y);
+    float obstdist = obstx * obstx + obsty * obsty;
     float rads = Radius + other.Radius;
 
-
-
-    //return true;
-    return(obstx < rads * rads && obsty < rads * rads);
+    return(obstdist < rads * rads);
 }
 
 void Asteroid::Draw() 
 {
     if (Destroyed == false) 
     {
-        DrawTextureEx(Sprite, Position, Rotation, Scale, WHITE);
-        DrawCircleLines((int)Position.x, (int)Position.y, Radius, YELLOW);
+        Rectangle sourceRect = { 0,0,(float)Sprite.width, (float)Sprite.height };
+        Rectangle distRect = { Position.x, Position.y, Sprite.width * Scale, Sprite.height * Scale };
+        DrawTexturePro(Sprite, sourceRect, distRect, { Sprite.width / 2 * Scale, Sprite.height / 2 * Scale }, Rotation, WHITE);
+        DrawCircleLines((int)Position.x, (int)Position.y, Radius * Scale, YELLOW);
     }
 }

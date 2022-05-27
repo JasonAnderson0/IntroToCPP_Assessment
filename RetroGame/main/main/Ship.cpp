@@ -14,6 +14,7 @@ Ship::Ship()
 	Destroyed = false;
 	Sprite = LoadTexture("Assets/Ship_L.png");
 	Scale = 1;
+	canShoot = true;
 }
 Ship::Ship(Vector2 position, Vector2 velocity, Texture2D sprite, float rotation, float speed) : SceneObject(position, velocity, 40, 90, 1)
 {
@@ -24,39 +25,45 @@ Ship::Ship(Vector2 position, Vector2 velocity, Texture2D sprite, float rotation,
 	Destroyed = false;
 	Speed = speed;
 	radius = 40;
+	canShoot = true;
 }
 
 
 void Ship::Update(float deltaTime)
 {
-	SceneObject::Update(deltaTime);
-	float turn = 0;
-	if (IsKeyDown(KEY_LEFT)) turn -= 1;
-	if (IsKeyDown(KEY_RIGHT)) turn += 1;
 
-	int thrust = IsKeyDown(KEY_UP) ? 1 : 0;
+	if (Destroyed == false) {
+		SceneObject::Update(deltaTime);
+		float turn = 0;
+		if (IsKeyDown(KEY_LEFT)) turn -= 1;
+		if (IsKeyDown(KEY_RIGHT)) turn += 1;
 
-	float r = (Rotation - 90) / 180 * PI;
-	Vector2 force = { (cos(r)) * Speed * thrust, sin(r) * Speed * thrust };
+		int thrust = IsKeyDown(KEY_UP) ? 1 : 0;
 
-	Position.x += force.x * deltaTime;
-	Position.y += force.y * deltaTime;
+		float r = (Rotation - 90) / 180 * PI;
+		Vector2 force = { (cos(r)) * Speed * thrust, sin(r) * Speed * thrust };
 
-	Rotation += turn * turnSpeed * deltaTime;
+		Position.x += force.x * deltaTime;
+		Position.y += force.y * deltaTime;
 
-	float w = (float)GetScreenWidth();
-	float h = (float)GetScreenHeight();
-	
+		Rotation += turn * turnSpeed * deltaTime;
+
+		float w = (float)GetScreenWidth();
+		float h = (float)GetScreenHeight();
 
 
-	Vector2 p = Position;
-	if (Position.x < -Radius) p.x = w + Radius;
-	if (Position.y < -Radius) p.y = w + Radius;
-	if (Position.x > w + Radius) p.x = -Radius;
-	if (Position.y > w + Radius) p.y = -Radius;
 
-	Position = p;
+		Vector2 p = Position;
+		if (Position.x < -Radius) p.x = w + Radius;
+		if (Position.y < -Radius) p.y = w + Radius;
+		if (Position.x > w + Radius) p.x = -Radius;
+		if (Position.y > w + Radius) p.y = -Radius;
 
+		Position = p;
+	}
+	else {
+		canShoot = false;
+	}
 }
 
 void Ship::Draw() 
