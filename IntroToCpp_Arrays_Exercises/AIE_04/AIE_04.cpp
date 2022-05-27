@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 
 	if (IsArraySorted(numbers, NUM_ITEMS)) std::cout << "Pass: the array is sorted" << std::endl;
 	else std::cout << "Fail: the array is not sorted" << std::endl;
-
+	system("pause");
 	return 0;
 }
 

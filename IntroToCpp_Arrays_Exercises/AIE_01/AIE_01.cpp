@@ -17,6 +17,6 @@ int main(int argc, char** argv)
 	{
 		std::cout << numbers[i] << ", ";
 	}
-
+	system("pause");
 	return 0;
 }

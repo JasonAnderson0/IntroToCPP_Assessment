@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	TestResult( BinarySearch(arr1, NUM_ITEMS, 0),  nullptr    );
 	TestResult( BinarySearch(arr1, NUM_ITEMS, 16), nullptr    );
 
-
+	system("pause");
 	return 0;
 }
 
