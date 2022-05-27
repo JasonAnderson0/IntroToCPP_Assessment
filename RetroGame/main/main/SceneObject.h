@@ -7,7 +7,6 @@
 class SceneObject
 {
 public:
-		//transform variables
 		Vector2 Position = {0,0};
 		Vector2 Velocity = {0,0};
 		float Radius;
@@ -20,7 +19,5 @@ public:
 		virtual void Update(float deltaTime);
 
 		virtual void Draw();
-
-		virtual void OnCollision(SceneObject other);
 };
 

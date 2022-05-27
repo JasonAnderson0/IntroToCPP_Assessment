@@ -3,7 +3,7 @@
 
 int main()
 {
-  
+    //application size set on initial start up
     int windowWidth = 800;
     int windowHeight = 800;
 
@@ -13,33 +13,9 @@ int main()
     Game game;
 
     game.Load();
-
+    //while the application is running, update and draw will be called from the game
     while (!WindowShouldClose()) {
         game.Update(GetFrameTime());
         game.Draw();
     }
 }
-
-
-    //Image LoadImageEx(Color * pixels, int width, int height)
-    //{
-    //    Image image = { 0 };
-    //    unsigned char* fileData = (unsigned char*)pixels;
-    //    unsigned char* dataPtr = fileData;
-    //    unsigned int size = GetPixelDataSize(width, height, PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
-    //    image.data = RL_MALLOC(size);      // Allocate required memory in bytes
-    //    if (image.data)
-    //    {
-    //        memcpy(image.data, dataPtr, size); // Copy required data to image
-    //        image.width = width;
-    //        image.height = height;
-    //        image.mipmaps = 1;
-    //        image.format = PIXELFORMAT_UNCOMPRESSED_R8G8B8A8;
-    //    }
-    //    return image;
-    //}
-
-    //Color* GetImageData(Image image)
-    //{
-    //    return (Color*)image.data;
-    //}
