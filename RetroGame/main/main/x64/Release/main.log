@@ -1,0 +1,7 @@
+﻿  SceneObject.cpp
+  Ship.cpp
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 139 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  main.vcxproj -> C:\Users\s201293\Documents\IntroToCPP_Assessment-main\Assessment\RetroGame\main\x64\Release\main.exe
